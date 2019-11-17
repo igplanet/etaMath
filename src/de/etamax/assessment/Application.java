@@ -34,7 +34,7 @@ public class Application {
     static List<Task> divisionQuestions = new ArrayList<>();
     static List<String> allQuestions = new ArrayList<>();
     static int additionCounter = 0;
-    static int SubtractionCounter = 0;
+    static int subtractionCounter = 0;
     static int multiplicationCounter = 0;
     static int divisionCounter = 0;
     static int currentQuestion = 0;
@@ -324,9 +324,9 @@ public class Application {
                         multiplicationCounter++;
                     } else {
                         //if multiplication Questions are exhausetd, get a Subtraction Question
-                        if (SubtractionCounter < 991) {
-                            task = subtractionQuestions.get(SubtractionCounter);
-                            SubtractionCounter++;
+                        if (subtractionCounter < 991) {
+                            task = subtractionQuestions.get(subtractionCounter);
+                            subtractionCounter++;
                         } else {
                             //if Subtraction Questions are exhausetd, get a division Question
                             if (divisionCounter < 72) {
@@ -350,9 +350,9 @@ public class Application {
                         task = additionQuestions.get(additionCounter);
                         additionCounter++;
                     } else {
-                        if (SubtractionCounter < 991) {
-                            task = subtractionQuestions.get(SubtractionCounter);
-                            SubtractionCounter++;
+                        if (subtractionCounter < 991) {
+                            task = subtractionQuestions.get(subtractionCounter);
+                            subtractionCounter++;
                         } else {
                             if (divisionCounter < 72) {
                                 task = divisionQuestions.get(divisionCounter);
@@ -367,9 +367,9 @@ public class Application {
                 }
                 break;
             case 3:
-                if (SubtractionCounter < 991) {
-                    task = subtractionQuestions.get(SubtractionCounter);
-                    SubtractionCounter++;
+                if (subtractionCounter < 991) {
+                    task = subtractionQuestions.get(subtractionCounter);
+                    subtractionCounter++;
                 } else {
                     if (additionCounter < 991) {
                         task = additionQuestions.get(additionCounter);
@@ -404,9 +404,9 @@ public class Application {
                             task = multiplicationQuestions.get(multiplicationCounter);
                             multiplicationCounter++;
                         } else {
-                            if (SubtractionCounter < 991) {
-                                task = subtractionQuestions.get(SubtractionCounter);
-                                SubtractionCounter++;
+                            if (subtractionCounter < 991) {
+                                task = subtractionQuestions.get(subtractionCounter);
+                                subtractionCounter++;
                             } else {
                                 //if all Questions are exhausetd, end the play
                                 System.out.println("no more questions");
