@@ -29,7 +29,7 @@ public class Application {
     static long timeOfQuestion = 0;
     static Task currentTask = new Task();
     static List<Task> additionQuestions = new ArrayList<>();
-    static List<Task> SubtractionQuestions = new ArrayList<>();
+    static List<Task> subtractionQuestions = new ArrayList<>();
     static List<Task> multiplicationQuestions = new ArrayList<>();
     static List<Task> divisionQuestions = new ArrayList<>();
     static List<String> allQuestions = new ArrayList<>();
@@ -173,13 +173,16 @@ public class Application {
         for (HighScore highscore : highScores) {
             System.out.printf("%-8d%-8s%-10s%s\n", rank, highscore.getScore(), highscore.getTime(), highscore.getName());
             rank++;
+            if (rank > 20) {
+                break;
+            }
         }
         System.out.println("---------------------------------------------------------");
     }
 
     static int getRandomQuestionType() {
         //generate random number to determine the question type to show
-        //1 for Addtion
+        //1 for Addition
         //2 for Multiplication
         //3 for Subtraction
         //4 for division
@@ -248,7 +251,7 @@ public class Application {
                     additionQuestions.add(new Task(question, c));
                     //Substraction as reversion task
                     String SubtractionQuestion = c + " - " + a + " = ?";
-                    SubtractionQuestions.add(new Task(SubtractionQuestion, b));
+                    subtractionQuestions.add(new Task(SubtractionQuestion, b));
 
                     //store both addition and subtraction task in the general task list
                     allQuestions.add(question);
@@ -322,7 +325,7 @@ public class Application {
                     } else {
                         //if multiplication Questions are exhausetd, get a Subtraction Question
                         if (SubtractionCounter < 991) {
-                            task = SubtractionQuestions.get(SubtractionCounter);
+                            task = subtractionQuestions.get(SubtractionCounter);
                             SubtractionCounter++;
                         } else {
                             //if Subtraction Questions are exhausetd, get a division Question
@@ -348,7 +351,7 @@ public class Application {
                         additionCounter++;
                     } else {
                         if (SubtractionCounter < 991) {
-                            task = SubtractionQuestions.get(SubtractionCounter);
+                            task = subtractionQuestions.get(SubtractionCounter);
                             SubtractionCounter++;
                         } else {
                             if (divisionCounter < 72) {
@@ -365,7 +368,7 @@ public class Application {
                 break;
             case 3:
                 if (SubtractionCounter < 991) {
-                    task = SubtractionQuestions.get(SubtractionCounter);
+                    task = subtractionQuestions.get(SubtractionCounter);
                     SubtractionCounter++;
                 } else {
                     if (additionCounter < 991) {
@@ -402,7 +405,7 @@ public class Application {
                             multiplicationCounter++;
                         } else {
                             if (SubtractionCounter < 991) {
-                                task = SubtractionQuestions.get(SubtractionCounter);
+                                task = subtractionQuestions.get(SubtractionCounter);
                                 SubtractionCounter++;
                             } else {
                                 //if all Questions are exhausetd, end the play
