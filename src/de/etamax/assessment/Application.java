@@ -98,11 +98,9 @@ public class Application {
                     System.out.println(currentTask.getQuestion());
                     //note time the question was asked
                     timeOfQuestion = System.currentTimeMillis();
-                    try {
-                        Thread.sleep(10000);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Application.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    do {
+                        //wait until player provides an input and Time is less than 10 seconds
+                    } while (answers.size() < 1 && (System.currentTimeMillis() - timeOfQuestion) < 10000);
                 } else {
                     //Current question is the game starting question
                     System.out.println("Welcome to etaMath!\nType 1 to start a game,\nType 2 to show highscores ");
